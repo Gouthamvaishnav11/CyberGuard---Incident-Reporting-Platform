@@ -1,0 +1,111 @@
+{% extends 'parent.html' %}
+
+{% block title %}
+<title>website</title>
+{% endblock %}
+
+{% block style %}
+  
+    <link  rel="stylesheet" href="/static/main.css">
+    
+{% endblock %}
+
+
+
+{% block main %}
+<main>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                    <span href="/login.html">CyberGuard</span>
+                </div>
+                <nav class="nav">
+                    <a href="/about">About</a>
+                    <a href="/dashboard">Dashboard</a>
+                    <a href="/incident">Incidents</a>
+                    <a href="#intelligence">Intelligence</a>
+                    <button class="btn btn-primary" id="connectWallet">Connect Wallet</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <svg class="hero-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                <h1>
+                    <span>Secure Incident Reporting</span>
+                    <span class="accent">Powered by Blockchain</span>
+                </h1>
+                <p>Report cybersecurity incidents securely and anonymously. Connect with experts and contribute to a safer digital ecosystem.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" id="reportIncident"   href="/report">Report Incident</button>
+                    <button class="btn btn-secondary" id="viewDashboard"  href="/dashboard">View Dashboard</button>
+                </div> 
+            </div>
+        </div>
+        <div class="hero-background">
+            <img src="/static/login.jpg" alt="Cybersecurity">
+        </div>
+    </section>
+
+    <div class="modal" id="reportModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal" aria-label="Close">&times;</button>
+            <h2>Report Security Incident</h2>
+            <form id="incidentForm" class="incident-form" action="/report" method="POST">
+                 <!-- Incident Type  -->
+                <div class="form-group">
+                    <label for="incidentType">Incident Type</label>
+                    <input type="text" id="incidentType" name="incident_type"  required placeholder="e.g., Data Breach, Malware, DDoS"  aria-describedby="incidentTypeHelp">
+                    <small id="incidentTypeHelp">Specify the type of incident (e.g., Data Breach, Malware).</small>
+                </div>
+    
+                 <!-- Severity  -->
+                <div class="form-group">
+                    <label for="severity">Severity</label>
+                    <select id="severity" name="typeseverity" required>
+                        <option value="" disabled selected>Select severity level</option>
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                        <option value="critical">Critical</option>
+                    </select>
+                </div>
+    
+                <!-- Description  -->
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="message" required  placeholder="Provide a brief description of the incident"  rows="5" aria-describedby="descriptionHelp"></textarea>
+                    <small id="descriptionHelp">Give detailed information about the incident.</small>
+                </div>
+    
+                 <!-- Form Actions  -->
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelReport">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    </div>
+
+
+
+
+</main>
+{% endblock %}
+
+{% block footer %}
+<footer class="footer_container">
+    <p>&copy; 2025 CyberGuard | All Rights Reserved</p>
+</footer>
+{% endblock %}

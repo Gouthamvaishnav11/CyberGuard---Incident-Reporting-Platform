@@ -1,0 +1,124 @@
+{% extends 'parent.html' %}
+
+{% block title %}
+  <title>Login</title>
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="/static/style.css"/>
+{% endblock %}
+
+{% block main %}
+<main>
+
+    <!-- Header -->
+    <header class="header">
+      <nav class="nav">
+       
+        <a href="/main" class="nav_logo"><img src="/static/CyberGuard.jpg "alt="img"/></a>
+  
+        <ul class="nav_items"> 
+          <li class="nav_item">
+            <a href="/main" class="nav_link">HOME</a>
+            <a href="/about" class="nav_link">ABOUT</a>
+            <a href="/dashboard" class="nav_link">DASHBOARD</a>
+            <a href="/contact" class="nav_link">CONTACT</a>
+          </li>
+        </ul>
+
+        <button class="button" id="form-open">Login</button>
+        
+      </nav>
+    </header>
+
+   <!-- Home Section -->
+<section class="home">
+  <div class="form_container">
+    <i class="uil uil-times form_close"></i>
+    
+    <!-- Login Form -->
+    <div class="form login_form">
+      <form action="/login" method="POST">
+        <h2>Login</h2>
+
+        <div class="input_box">
+          <input type="email" name="email" placeholder="Enter your email" required />
+          <i class="uil uil-envelope-alt email"></i>
+        </div>
+        <div class="input_box">
+          <input type="password" name="password" placeholder="Enter your password" required />
+          <i class="uil uil-lock password"></i>
+          <i class="uil uil-eye-slash pw_hide"></i>
+        </div>
+
+        <div class="option_field">
+          <span class="checkbox">
+            <input type="checkbox" id="remember_me" />
+            <label for="remember_me">Remember me</label>
+          </span>
+          <a href="#" class="forgot_pw">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="button">Login Now</button>
+
+        <div class="login_signup">
+          Don't have an account? <a href="/signup" id="signup">Signup</a>
+        </div>
+      </form>
+    </div>
+
+    <!-- Signup Form -->
+    <div class="form signup_form">
+      <form action="/signup" method="POST">
+        <h2>Signup</h2>
+
+        <div class="input_box">
+          <input type="username" name="username" placeholder="Enter your name" required />
+          <i class="uil uil-envelope-alt name"></i>
+        </div>
+
+        <div class="input_box">
+          <input type="email" name="email" placeholder="Enter your email" required />
+          <i class="uil uil-envelope-alt email"></i>
+        </div>
+        <div class="input_box">
+          <input type="password" name="password" placeholder="Create password" required />
+          <i class="uil uil-lock password"></i>
+          <i class="uil uil-eye-slash pw_hide"></i>
+        </div>
+        <div class="input_box">
+          <input type="password" name="confirm_password" placeholder="Confirm password" required />
+          <i class="uil uil-lock password"></i>
+          <i class="uil uil-eye-slash pw_hide"></i>
+        </div>
+
+        <button type="submit" class="button">Signup Now</button>
+
+        <div class="login_signup">
+          Already have an account? <a href="/login" id="login">Login</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+
+       <!-- main banner -->
+    <section class="bgimage">
+        <div class="container-fluid">
+            <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hero-text">
+                <h2 class="hero_title">WELCOME TO CYBERGUARD</h2>
+                 <p class="hero_desc">Secure Incident Reporting at your Fingertips please login to continue </p> 
+            </div>
+            </div>
+   </div> 
+  </div>
+</section>
+
+</main>
+{% block script %}
+<script src="/static/script.js"></script>
+{% endblock %}
+{% endblock main %}
